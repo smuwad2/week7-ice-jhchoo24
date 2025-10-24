@@ -18,13 +18,13 @@ export default {
                 return 'http://localhost:3000'
             else {
                 const codespace_host = window.location.hostname.replace('5173', '3000')
-                return https://${codespace_host};
+                return `https://${codespace_host}`;  
             }
         }
     },
     methods: {
         addPost() {
-            axios.get(${this.baseUrl}/addPost, {
+            axios.get(`${this.baseUrl}/addPost`, {  
                 params: {
                     subject: this.subject,
                     entry: this.entry,
@@ -52,7 +52,6 @@ export default {
         <br>
 
         Mood:
-        <!-- TODO: Build a dropdown list here for selecting the mood -->
         <select v-model="selected_mood">
             <option v-for="mood in moods">{{ mood }}</option>
         </select>
